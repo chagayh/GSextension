@@ -1,29 +1,29 @@
 {
 
-  "manifest_version": 1,
+  "manifest_version": 2,
   "name": "GSextenstion",
-  "version": "1.0",
+  "version": "2.0",
 
   "browser_action": {
-    "default_icon": "icons/ext_logo.png",
+    "default_icon": "icons/ext_logo.svg",
     "default_title": "NIH link and the citations",
-    "default_popup": "popup/choose_mode.html" 
+    "default_popup": "src/popup/popup.html" 
   },
 
   "background": {
     "scripts": [ "src/background.js" ]
   }, 
-
+  
   "content_scripts": [
     {
-    "matches": [ "<all_urls>" ],
-    "js": [ "src/content_scripts/timer.js" ]
+    "matches": [ "*://scholar.google.com/*" ],
+    "js": [ "src/content_scripts/content_script.js" ]
     }
   ],
 
   "permissions": [
+    "clipboardWrite",
     "storage",
-    "alarms",
 	  "webNavigation",
 	  "tabs",
 	  "activeTab",
