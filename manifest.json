@@ -9,10 +9,6 @@
     "default_title": "NIH link and the citations",
     "default_popup": "src/popup/popup.html" 
   },
-
-  "background": {
-    "scripts": [ "src/background.js" ]
-  }, 
   
   "content_scripts": [
     {

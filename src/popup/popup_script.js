@@ -24,7 +24,7 @@ function setOneStorageItem(btn, storageKey) {
 
 function copy(msg) {
     const el = document.createElement("textArea");
-    var copyText = msg.title + "\n" + msg.subTitle + msg.nihLink + " " + msg.citedByLink;
+    var copyText = msg.title + "\n" + msg.subTitle + " " + msg.nihLink + " " + msg.citedByLink;
     el.value = copyText;
     document.body.appendChild(el);
     el.select();
