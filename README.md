@@ -1,7 +1,8 @@
 # GSextension
 
 Installation
-6. Download the code.
+
+1. Download the code.
 2. Extract the .xpi file	
 3. Open firefox
 4. Click the menu button (top right), click Add-ons and select Extensions. 
