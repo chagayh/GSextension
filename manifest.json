@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "GSextenstion",
-  "version": "2.0",
+  "version": "2.0.1",
 
   "browser_action": {
     "default_icon": "icons/ext_logo.svg",

@@ -1,5 +1,7 @@
 # GSextension
 
+Icon was downloaded from - https://www.flaticon.com/authors/freepik
+
 Installation
 
 1. Download the code.
