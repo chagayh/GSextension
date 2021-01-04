@@ -23,13 +23,33 @@ function setOneStorageItem(btn, storageKey) {
 }
 
 function copy(msg) {
-    const el = document.createElement("textArea");
-    var copyText = msg.title + "\n" + msg.subTitle + " " + msg.nihLink + " " + msg.citedByLink;
-    el.value = copyText;
-    document.body.appendChild(el);
-    el.select();
+    var divCopy = document.getElementById("divCopy");
+
+    //date
+    var today = new Date();
+    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
+    var dateCopy = document.getElementById("dateCopy");
+    dateCopy.innerText = date;
+
+    msg.title = msg.title.replace(/.$/, " ");
+    var nihCopy = document.getElementById("nihCopy");
+    nihCopy.href = msg.nihLink;
+    nihCopy.innerText = msg.title  
+
+    var citedCopy = document.getElementById("citedByCopy");
+    citedCopy.href = msg.citedByLink;
+    citedCopy.innerText = msg.citedByText;
+
+    var subTitleCopy = document.getElementById("subTitleCopy");
+    subTitleCopy.innerText = msg.subTitle;   
+
+    const range = document.createRange();
+    range.selectNode(divCopy);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
     document.execCommand('copy');
-    document.body.removeChild(el);
+    divCopy.hidden = true;
 }
 
 function handleMessage(request, sender, sendResponse) {
