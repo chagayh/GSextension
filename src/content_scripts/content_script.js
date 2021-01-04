@@ -25,17 +25,14 @@
             msg.nihLink = links[i].href;
             msg.title = links[i].text;
             msg.subTitle = links[i].parentElement.nextSibling.firstChild.nodeValue;
-            console.log("links[i].href = " + links[i].href);
-            console.log("links[i].text = " + links[i].text);
-            console.log("links[i].nodeValue = " + links[i].parentElement.nextSibling.firstChild.nodeValue);
-            // .parentElement.nextSibling.firstChild.nodeValue
-
-            // console.log("links[i].parentElement = " + links[i].parentElement.parentElement.innerHTML);
+            // console.log("links[i].href = " + links[i].href);
+            // console.log("links[i].text = " + links[i].text);
+            // console.log("links[i].nodeValue = " + links[i].parentElement.nextSibling.firstChild.nodeValue);
         }
         if (citedByTextRef.includes("Cited")) {
             msg.citedByText = links[i].text;
             msg.citedByLink = links[i].href;
-            console.log(citedByTextRef);
+            // console.log(citedByTextRef);
         }
     }
     msg.isFound = found;
