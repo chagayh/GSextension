@@ -31,7 +31,9 @@ function copy(msg) {
     var dateCopy = document.getElementById("dateCopy");
     dateCopy.innerText = date;
 
-    msg.title = msg.title.replace(/.$/, " ");
+
+    msg.title = msg.title.replace(/\.$/, "");
+    msg.title = msg.title.padEnd(msg.title.length + 1);
     var nihCopy = document.getElementById("nihCopy");
     nihCopy.href = msg.nihLink;
     nihCopy.innerText = msg.title  
