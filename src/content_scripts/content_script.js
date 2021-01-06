@@ -18,19 +18,19 @@
             var className = links[i].parentElement.className;
             if (className != "gs_rt") {
                 nihState = 1;
-                console.log("found nih.gov text $$$$");
+                // console.log("found nih.gov text $$$$");
                 continue;
             }
-            console.log("nihState = " + nihState);
+            // console.log("nihState = " + nihState);
             if (nihState === 1) {
-                console.log("links[i].href = " + links[i].href);
+                // console.log("links[i].href = " + links[i].href);
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
                 msg.subTitle = links[i].parentElement.nextSibling.firstChild.nodeValue;
                 nihState = 2;
             } else if (nihState === 0){
-                console.log("links[i].href = " + links[i].href);
+                // console.log("links[i].href = " + links[i].href);
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
@@ -47,7 +47,7 @@
     msg.isFound = found;
 
     function handleResponse(message) {
-        // console.log(`response from popup script: ${message.response}`);
+        console.log(`response from popup script: ${message.response}`);
     }
       
     function handleError(error) {

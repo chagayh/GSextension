@@ -54,6 +54,19 @@ function copy(msg) {
     divCopy.hidden = true;
 }
 
+function openTab(val, btn, link, idx) {
+    if (val == 0) {
+        btn.checked = false;
+    } else {
+        btn.checked = true;
+        browser.tabs.create({
+            url: link, 
+            index: idx,
+            active: false
+        })
+    }
+}
+
 function handleMessage(request, sender, sendResponse) {
 
     var titleEl         = document.getElementById("title");
@@ -69,7 +82,7 @@ function handleMessage(request, sender, sendResponse) {
 
     var nihCheckVal     = localStorage.getItem("nihOpenTabKey");
     var citedCheckVal   = localStorage.getItem("citedOpenTabKey");
-    
+
     if (request.isFound) {
 
         goBtn.addEventListener('click', function() {
@@ -95,25 +108,11 @@ function handleMessage(request, sender, sendResponse) {
         citedEl.href = request.citedByLink;
         citedEl.innerText = request.citedByText;
         
-        nihCheckVal = Number.parseInt(nihCheckVal);
-        if (nihCheckVal == 0) {
-            nihCheckBtn.checked = false;
-        } else {
-            nihCheckBtn.checked = true;
-            browser.tabs.create({
-                url: request.nihLink, 
-                active: false
-            })
-        }
-        if (citedCheckVal == 0) {
-            citedCheckBtn.checked = false;
-        } else {
-            citedCheckBtn.checked = true;
-            browser.tabs.create({
-                url: request.citedByLink, 
-                active: false
-            })
-        }
+        browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+            let currTabIdx = tabs[0].index;
+            openTab(nihCheckVal, nihCheckBtn, request.nihLink, currTabIdx + 1);
+            openTab(citedCheckVal, citedCheckBtn, request.citedByLink, currTabIdx + 2);
+        });
 
         copy(request);
 
@@ -125,8 +124,6 @@ function handleMessage(request, sender, sendResponse) {
         goBtn.hidden = true;
         titleEl.innerText = "no NIH link";
     }
-
-    sendResponse({response: "HIII"});
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
