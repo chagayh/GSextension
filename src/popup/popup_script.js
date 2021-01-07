@@ -27,10 +27,11 @@ function copy(msg) {
 
     //date
     var today = new Date();
-    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
+    var year = today.getFullYear() + "";
+    year = year.slice(2,4);
+    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + year;
     var dateCopy = document.getElementById("dateCopy");
     dateCopy.innerText = date;
-
 
     msg.title = msg.title.replace(/\.$/, "");
     msg.title = msg.title.padEnd(msg.title.length + 1);
@@ -124,6 +125,8 @@ function handleMessage(request, sender, sendResponse) {
         goBtn.hidden = true;
         titleEl.innerText = "no NIH link";
     }
+
+    sendResponse({response: "hii"});
 }
 
 browser.runtime.onMessage.addListener(handleMessage);

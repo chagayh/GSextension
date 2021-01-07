@@ -27,14 +27,14 @@
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
-                msg.subTitle = links[i].parentElement.nextSibling.firstChild.nodeValue;
+                msg.subTitle = links[i].parentElement.nextSibling.textContent;
                 nihState = 2;
             } else if (nihState === 0){
                 // console.log("links[i].href = " + links[i].href);
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
-                msg.subTitle = links[i].parentElement.nextSibling.firstChild.nodeValue;
+                msg.subTitle = links[i].parentElement.nextSibling.textContent;
             }
         }
         
@@ -54,7 +54,9 @@
         console.log(`Error: ${error}`);
     }
     var today = new Date();
-    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
+    var year = today.getFullYear() + "";
+    year = year.slice(2,4);
+    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + year;
     console.log(date);
 
     if (!document.hidden) {
