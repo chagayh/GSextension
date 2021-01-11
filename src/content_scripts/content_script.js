@@ -1,36 +1,38 @@
 (function() {
 
-    var links = document.links;
+    var links = document.links;     // find all the links on the pageS
     found = false;
     var msg = {
-        isFound: true,
-        nihLink: null,
-        title: null,
-        subTitle: null,
-        citedByText: null,
-        citedByLink: null
+        isFound: true,          // if exist nih link
+        nihLink: null,          // the nih link - href
+        title: null,            // the title
+        subTitle: null,         // the authors line
+        citedByText: null,      // the cited by text
+        citedByLink: null       // the cited by link - href
     }
+
     var nihState = 0;
     for (var i = 0; i < links.length; i++) {
+        // iterate over all links found on the page
         var citedByTextRef = "" + links[i].text;
         var nihLinkRef = "" + links[i] + ""; 
         if (nihLinkRef.includes("nih")) {
             var className = links[i].parentElement.className;
             if (className != "gs_rt") {
-                nihState = 1;
-                // console.log("found nih.gov text $$$$");
+                // found the link from the right side of the page
+                nihState = 1;   // changes state to 1 meaning next iteration will be the correct link
                 continue;
             }
             // console.log("nihState = " + nihState);
-            if (nihState === 1) {
-                // console.log("links[i].href = " + links[i].href);
+            if (nihState === 1) {       
+                // find the link attached to the link on the right side
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
                 msg.subTitle = links[i].parentElement.nextSibling.textContent;
                 nihState = 2;
             } else if (nihState === 0){
-                // console.log("links[i].href = " + links[i].href);
+                // there is no link on the right side of the page
                 found = true;
                 msg.nihLink = links[i].href;
                 msg.title = links[i].text;
@@ -39,9 +41,9 @@
         }
         
         if (citedByTextRef.includes("Cited")) {
+            // find the cited by link
             msg.citedByText = links[i].text;
             msg.citedByLink = links[i].href;
-            // console.log(citedByTextRef);
         }
     }
     msg.isFound = found;
@@ -53,16 +55,10 @@
     function handleError(error) {
         console.log(`Error: ${error}`);
     }
-    var today = new Date();
-    var year = today.getFullYear() + "";
-    year = year.slice(2,4);
-    var date = today.getDate() + "." + (today.getMonth() + 1) + "." + year;
-    console.log(date);
 
     if (!document.hidden) {
         var sending = browser.runtime.sendMessage(msg); 
         sending.then(handleResponse, handleError);
     }
     
-
   })();
