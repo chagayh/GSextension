@@ -45,5 +45,5 @@ Icon was downloaded from [here](https://www.flaticon.com/authors/freepik)
    ```
 
    * Remember to change the version written in the manifest.json when creatng a new xpi file.
-   * The web-ext-artifacts directory will be created: inside of it we will find the signed .xpi file that 
-     we can install by visiting the about:addons firefox page. The command will also upload our extension to our firefox developer account. 
+   * The web-ext-artifacts directory will be created: inside of it you will find the signed .xpi file that 
+     you can install by visiting the about:addons firefox page. The command will also upload the extension to the firefox developer account. 
