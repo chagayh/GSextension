@@ -31,6 +31,7 @@ Icon was downloaded from [here](https://www.flaticon.com/authors/freepik)
    [source](https://github.com/mozilla/web-ext)
    * First, make sure you are running the current LTS (long term support) version of NodeJS.
    * You can install this command onto your machine globally with:
+   
         ```
         npm install --global web-ext
         ```
