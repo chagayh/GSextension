@@ -31,7 +31,9 @@ Icon was downloaded from [here](https://www.flaticon.com/authors/freepik)
    [source](https://github.com/mozilla/web-ext)
    * First, make sure you are running the current LTS (long term support) version of NodeJS.
    * You can install this command onto your machine globally with:
+        ```
         npm install --global web-ext
+        ```
 2. Create an account on the  [Mozilla developer hub](https://addons.mozilla.org/en-US/developers/) hub. 
 3. Go to this [page](https://addons.mozilla.org/en-US/developers/addon/api/key/) and generate our API keys 
    by clicking on the "Generate new credentials" button. Two credentials will be created: JWT issuer and JWT secret.
