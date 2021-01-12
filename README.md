@@ -24,11 +24,11 @@ Icon was downloaded from [here](https://www.flaticon.com/authors/freepik)
 6. Pressing the go button will close the popup and will save the current state of the two checkboxes. 
     However the checkboxes state will be saved even if the popup is closed in a different way.
 
-## Packaging and signing the extension -
+## Packaging and signing the extension 
 [source](https://linuxconfig.org/how-to-create-package-and-sign-a-firefox-web-extension)
 
 1. Install the web-ext tool -
-   * [source](https://github.com/mozilla/web-ext)
+   [source](https://github.com/mozilla/web-ext)
    * First, make sure you are running the current LTS (long term support) version of NodeJS.
    * You can install this command onto your machine globally with:
         npm install --global web-ext
