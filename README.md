@@ -36,7 +36,7 @@ Icon was downloaded from [here](https://www.flaticon.com/authors/freepik)
         npm install --global web-ext
         ```
 2. Create an account on the  [Mozilla developer hub](https://addons.mozilla.org/en-US/developers/). 
-3. Go to this [page](https://addons.mozilla.org/en-US/developers/addon/api/key/) and generate our API keys 
+3. Go to this [page](https://addons.mozilla.org/en-US/developers/addon/api/key/) and generate API keys 
    by clicking on the "Generate new credentials" button. Two credentials will be created: JWT issuer and JWT secret.
 4. To sign our package we must use them both and launch the following command from inside the 
    extension directory:  
